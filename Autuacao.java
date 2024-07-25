@@ -1,6 +1,7 @@
 package autarquia_POO;
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.List;
 public class Autuacao{
 	
 	private Multa multa;
@@ -10,9 +11,11 @@ public class Autuacao{
 	private Date data;
 	private int id;
 	
-
+	List<Multa> multas;
+	
 	public Autuacao(Multa multa, Veículo veiculo, Local local, Pessoa autuado, Date data, int id) {
-		this.multa = multa;
+		multas = new ArrayList();
+		multas.add(multa);
 		this.veiculo = veiculo;
 		this.local = local;
 		this.autuado = autuado;
@@ -22,12 +25,12 @@ public class Autuacao{
 
 
 	public String getNome() {
-		return multa.getNome();
+		return multas.get(0).getNome();
 	}
 
 
 	public void setMulta(Multa multa) {
-		this.multa = multa;
+		multas.add(multa);
 	}
 
 

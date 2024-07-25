@@ -8,33 +8,24 @@ public class Main {
 		
 		List<Multa> multas;
 		multas = new ArrayList();
-		List<Pessoa> pessoas;
-		pessoas = new ArrayList();
-		List<Veículo> veiculos;
-		veiculos = new ArrayList();
-		List<Local> locais;
-		locais = new ArrayList();
-		List<Autuacao> autuacoes;
-		autuacoes = new ArrayList();
 		
 		Multa m1 = new Multa("Passou Sinal Vermelho", "alta", "overspeed", 1, 500.0);
 		multas.add(m1);
 		
-		Pessoa p1 = new Pessoa("Jose", 123, 321, "A");
-		pessoas.add(p1);
-		
+		Condutor p1 = new Condutor("Jose", 123, 321, "A");
+	
 		Veículo v1 = new Veículo("UNO", 456,"FIAT", 2001, p1);
-		veiculos.add(v1);
 		
 		Local l1 = new Local("A", "PICI", 60000000, "Fortaleza");
-		locais.add(l1);
-
-		Autuacao a1 = new Autuacao(m1, v1, l1, p1, new Date(), 1);
-		autuacoes.add(a1);
 		
-		System.out.println( " Id da multa:" + a1.getId() + "\n Multa:"
-				+ a1.getNome() + "\n Data:"
-				+ a1.getData());
+		Autuador a1 = new Autuador();
+		
+		a1.autuar(m1, v1, l1, p1, new Date(), 1);
+		
+		
+		for (int i = 0; i < a1.getAutuacoes(p1).size(); i++) {
+			System.out.println(a1.getAutuacoes(p1).get(i).getAutuado().getNome());
+			}
 
 }
 }
